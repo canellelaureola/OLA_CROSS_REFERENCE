@@ -1,0 +1,391 @@
+/* ============================= */
+/* STYLE GÉNÉRAL                 */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+}
+
+
+/* ============================= */
+/* EN-TÊTE                       */
+/* ============================= */
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 20px 8%;
+
+    background: white;
+    border-bottom: 4px solid #ffd400;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+header h1 {
+    margin: 0;
+    color: #123b5d;
+    font-size: 28px;
+}
+
+header p {
+    margin: 6px 0 0;
+    color: #666;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ============================= */
+/* CONTENU PRINCIPAL              */
+/* ============================= */
+
+main {
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 50px auto;
+}
+
+main > h2 {
+    text-align: center;
+
+    color: #123b5d;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+main > p {
+    text-align: center;
+
+    color: #666;
+
+    font-size: 17px;
+
+    margin-bottom: 35px;
+}
+
+
+/* ============================= */
+/* BARRE DE RECHERCHE             */
+/* ============================= */
+
+.recherche {
+    display: flex;
+
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    background: white;
+
+    padding: 8px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+}
+
+.recherche input {
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    padding: 16px;
+
+    font-size: 17px;
+
+    border-radius: 8px;
+}
+
+.recherche input::placeholder {
+    color: #999;
+}
+
+.recherche button {
+    border: none;
+
+    background: #123b5d;
+
+    color: white;
+
+    padding: 0 25px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.recherche button:hover {
+    background: #0d2d46;
+}
+
+
+/* ============================= */
+/* RÉSULTATS                     */
+/* ============================= */
+
+.resultat {
+    margin-top: 45px;
+}
+
+.resultat > h2 {
+    color: #123b5d;
+
+    margin-bottom: 20px;
+}
+
+.produit {
+    background: white;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e1e5e8;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.produit h3 {
+    color: #123b5d;
+
+    font-size: 22px;
+
+    margin: 10px 0 15px;
+}
+
+.produit p {
+    margin: 8px 0;
+}
+
+
+/* ============================= */
+/* ÉTIQUETTES                    */
+/* ============================= */
+
+.etiquette {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 5px;
+
+    background: #123b5d;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.etiquette.ola {
+    background: #ffd400;
+
+    color: #123b5d;
+}
+
+
+/* ============================= */
+/* ÉQUIVALENT OLA                */
+/* ============================= */
+
+.equivalent {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #fff9d6;
+
+    border-left: 6px solid #ffd400;
+
+    border-radius: 10px;
+}
+
+.equivalent h3 {
+    font-size: 24px;
+}
+
+
+/* ============================= */
+/* PAS D'ÉQUIVALENT               */
+/* ============================= */
+
+.pas-equivalent {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background: #eeeeee;
+
+    border-radius: 10px;
+}
+
+
+/* ============================= */
+/* AUCUN RÉSULTAT                 */
+/* ============================= */
+
+.aucun {
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ============================= */
+/* VERSION TÉLÉPHONE              */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px 5%;
+
+        gap: 15px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 11px;
+    }
+
+    main {
+        width: 92%;
+
+        margin: 30px auto;
+    }
+
+    main > h2 {
+        font-size: 25px;
+    }
+
+    main > p {
+        font-size: 15px;
+    }
+
+    .recherche {
+        flex-direction: column;
+
+        gap: 8px;
+
+        padding: 8px;
+    }
+
+    .recherche button {
+        padding: 14px;
+    }
+
+    .produit {
+        padding: 18px;
+    }
+
+    .produit h3 {
+        font-size: 19px;
+    }
+
+    .equivalent h3 {
+        font-size: 21px;
+    }
+}
+/* ============================= */
+/* PRODUIT CONCURRENT             */
+/* ============================= */
+
+.etiquette.concurrent {
+    background-color: #d9534f;
+    color: white;
+}
+
+
+/* ============================= */
+/* FLÈCHE ENTRE LES PRODUITS     */
+/* ============================= */
+
+.fleche {
+    text-align: center;
+
+    font-size: 35px;
+
+    font-weight: bold;
+
+    color: #123b5d;
+
+    margin: 10px 0;
+}
+
+
+/* ============================= */
+/* INFORMATIONS MARQUE            */
+/* ============================= */
+
+.produit-recherche p {
+    color: #555;
+}
+
+
+/* ============================= */
+/* ÉQUIVALENT OLA                 */
+/* ============================= */
+
+.equivalent {
+    border-left: 6px solid #ffd400;
+}
+
+
+/* ============================= */
+/* MOBILE                         */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    .fleche {
+        font-size: 28px;
+        margin: 8px 0;
+    }
+
+    .etiquette {
+        font-size: 11px;
+    }
+
+}

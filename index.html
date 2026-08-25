@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>OLA Energy - Cross-Référence</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <img
+        src="{{ url_for('static', filename='logo.jpeg') }}"
+        alt="Logo OLA Energy"
+        class="logo"
+    >
+
+    <div>
+
+        <h1>
+            Cross-Référence Lubrifiants
+        </h1>
+
+        <p>
+            CAMEROUN — DÉPARTEMENT B2B
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+    <h2>
+        Cross-Référence Lubrifiants
+    </h2>
+
+
+    <p>
+        Recherchez un produit concurrent pour trouver
+        son équivalent OLA Energy.
+    </p>
+
+
+
+    <!-- FORMULAIRE -->
+
+    <form
+        class="recherche"
+        method="POST"
+        action="/rechercher"
+    >
+
+        <input
+            type="text"
+            name="produit"
+            placeholder="Exemple : Talusia Universal 100"
+            required
+        >
+
+        <button type="submit">
+            🔍 Rechercher
+        </button>
+
+    </form>
+
+
+
+    <!-- RÉSULTATS -->
+
+    {% if produit %}
+
+
+    <div class="resultat">
+
+
+        <h2>
+            Résultats de recherche
+        </h2>
+
+
+        {% for p in produit %}
+
+
+        <div class="produit">
+
+
+            <!-- PRODUIT CONCURRENT -->
+
+            <div class="produit-recherche">
+
+
+                <span class="etiquette concurrent">
+                    🔴 PRODUIT CONCURRENT
+                </span>
+
+
+                <h3>
+                    {{ p[1] }}
+                </h3>
+
+
+                <p>
+                    <strong>Marque :</strong>
+                    {{ p[3] or "Non renseignée" }}
+                </p>
+
+
+                <p>
+                    <strong>Type d'huile :</strong>
+                    {{ p[4] or "Non renseigné" }}
+                </p>
+
+
+                <p>
+                    <strong>Grade SAE :</strong>
+                    {{ p[5] or "N/A" }}
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ÉQUIVALENT OLA -->
+
+            {% if p[6] %}
+
+
+            <div class="fleche">
+                ↓
+            </div>
+
+
+            <div class="equivalent">
+
+
+                <span class="etiquette ola">
+                    🟡 ÉQUIVALENT OLA ENERGY
+                </span>
+
+
+                <h3>
+                    {{ p[6] }}
+                </h3>
+
+
+                <p>
+                    <strong>Type d'huile :</strong>
+                    {{ p[7] or "Non renseigné" }}
+                </p>
+
+
+                <p>
+                    <strong>Grade SAE :</strong>
+                    {{ p[8] or "N/A" }}
+                </p>
+
+
+            </div>
+
+
+            {% else %}
+
+
+            <div class="pas-equivalent">
+
+                <strong>
+                    ⚠️ Aucun équivalent OLA Energy
+                </strong>
+
+                <p>
+                    Aucun équivalent n'est actuellement
+                    enregistré dans la base pour ce produit.
+                </p>
+
+            </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+
+    {% elif recherche %}
+
+
+    <!-- AUCUN RÉSULTAT -->
+
+    <div class="resultat aucun">
+
+
+        <h2>
+            Aucun produit trouvé
+        </h2>
+
+
+        <p>
+
+            Aucun produit correspondant à
+
+            <strong>
+                {{ recherche }}
+            </strong>
+
+            n'a été trouvé dans la base.
+
+        </p>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+</main>
+
+
+</body>
+
+</html>
